@@ -4,12 +4,6 @@ check_secret_key()#run firstly - checks the key
 
 from encryption_utils import save_data, show_all_data, delete_data_by_name
 
-# save_data("facebook", "user2fb@wp.pl", "fbpass123!")
-# save_data("youtube", "user1yt@gmail.com", "ytpass123!")
-# show_all_data()
-
-
-
 import tkinter as tk
 from tkinter import messagebox
 import re
