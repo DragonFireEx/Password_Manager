@@ -26,14 +26,6 @@ This is a simple password manager with encryption and a graphical user interface
 2. Install the required libraries:
    pip install cryptography
 
-## Structure of Program
-Program/
-├── main.py               # Main GUI and application logic
-├── encryption_utils.py   # Encryption, decryption, JSON file operations
-├── key_creator.py        # Key creation and validation
-├── data.json             # Encrypted data file (created automatically)
-└── README.md             # Project description
-
 ## Security
 - All login data is encrypted before being saved.
 - The encryption key is required to read the data. Without it, decryption is not possible.
