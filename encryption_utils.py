@@ -1,6 +1,7 @@
 import json
 import os
 from cryptography.fernet import Fernet
+from tkinter import messagebox
 
 def load_key():
     with open("secret.key", "rb") as key_file:
@@ -95,8 +96,8 @@ def save_data(name,login,password): #this function is getting all the data from 
 
     if record["website-name"] in data:
         print(f"There's already data to this website '{name}'. Do you want to replace it with new one?")
-        check = int(input("1 - yes\n0 - no\n"))
-        if(check==1):
+        check = messagebox.askyesno("Confirmation", f"There's already data to this website '{name}'. Do you want to replace it with new one?")
+        if check:
             #if website-name is equal to existing one it raplaces it with new data
             data[record["website-name"]] = {
                 "login": encrypted_login,
@@ -107,10 +108,8 @@ def save_data(name,login,password): #this function is getting all the data from 
                 json.dump(data, file, indent=4)
             
             print("Data Saved!")
-        elif(check == 0):
-            print("Canceled operation.")
         else:
-            print("Wrong input. Cancelling actions.")
+            print("Canceled operation.")
     else:
         data[record["website-name"]] = {
                 "login": encrypted_login,
